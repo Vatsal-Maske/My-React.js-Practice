@@ -2,13 +2,29 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-
 function App() {
-let counter = 5;
+
+  const [counter ,setCounter] = useState(5)
+  // const [name,setName] = useState("John")
+
+
+const removeValue = () => {
+  console.log("Value removed", counter);
+  setCounter(counter - 1);
+  if(counter<=0){
+    setCounter(0)
+  }
+  // counter -= 1;
+}
+ 
+// let counter = 5;
 const addValue = () => {
  
   console.log("Value added",counter);
-   counter += 1;
+  setCounter(counter + 1)
+
+
+  //  counter += 1;
 }
   return (
     <>
@@ -19,7 +35,7 @@ const addValue = () => {
       onClick={addValue}
       >Add value </button>
       <br />
-      <button>remove value</button>
+      <button onClick={removeValue}>remove value</button>
     </>
   )
 }
